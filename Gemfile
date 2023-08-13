@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'devise'
 gem "font-awesome-sass", "~> 6.4.2"
-
+gem 'activestorage-validator'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
