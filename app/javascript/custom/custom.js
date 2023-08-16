@@ -1,15 +1,17 @@
-import * as FilePond from 'filepond';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 
+import * as FilePond from "filepond";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 
-document.addEventListener('turbo:load', loadFilePond);
+document.addEventListener("turbo:load", loadFilePond);
 
 function loadFilePond() {
+  FilePond.registerPlugin(
+    FilePondPluginImagePreview,
+    FilePondPluginFileValidateType
+  );
 
-  FilePond.registerPlugin(FilePondPluginImagePreview, FilePondPluginFileValidateType);
-
-  const inputElement = document.querySelector('#post-images');
+  const inputElement = document.querySelector("#post-images");
 
   // Create a FilePond instance
   const pond = FilePond.create(inputElement, {
@@ -17,6 +19,6 @@ function loadFilePond() {
     storeAsFile: true,
     allowMultiple: true,
     allowReorder: true,
-    acceptedFileTypes: ['image/jpeg']
+    acceptedFileTypes: ["image/*"],
   });
 }
