@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    redirect_to root_path
   end
 
   # GET /posts/1 or /posts/1.json
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { redirect_to root_path, status: :unprocessable_entity, alert: @post.errors.full_messages }
+        format.html { redirect_to root_path, status: :unprocessable_entity, alert: @post.errors.full_messages}
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -67,4 +67,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:caption, :longitude, :latitude, :user_id, :allow_comments, :show_likes_count, images: [])
     end
+
 end
