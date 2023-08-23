@@ -4,17 +4,17 @@ class FollowsController < ApplicationController
 
   def follow
     current_user.follow(@user)
-    redirect_back(fallback_location :root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def cancel_request
     current_user.cancel_request(@user)
-    redirect_back(fallback_location :root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def unfollow
     current_user.unfollow(@user)
-    redirect_back(fallback_location :root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def accept_follow
@@ -28,7 +28,7 @@ class FollowsController < ApplicationController
   end
 
   private
-  def self_user
+  def set_user
     @user = User.find(params[:user_id])
   end
 
